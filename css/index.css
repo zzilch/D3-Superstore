@@ -1,0 +1,37 @@
+/* legend */
+#legend {
+	padding: 0;
+	margin: 0;
+}
+
+ul.key {
+	padding: 0;
+}
+
+li.key {
+	list-style: none;
+	height: 30px;
+	width: 30px;
+	border-left-width: 30px;
+	border-left-style: solid;
+	line-height: 30px;
+}
+
+/* container */
+.el-header,
+.el-footer,
+.el-aside,
+.el-main {
+	text-align: center;
+}
+
+html,
+body,
+#app,
+.el-container,
+.el-header,
+.el-footer,
+.el-menu {
+	padding: 0px;
+	margin: 0px;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./css/d3-tip.css" />
+	<link rel="stylesheet" href="./css/billboard.css" />
+	<link rel="stylesheet" href="./css/insight.css" />
+	<link rel="stylesheet" href="./css/element.css" />
+	<link rel="stylesheet" href="./css/index.css" />
+	<title>City Vis</title>
+</head>
+
+<body>
+	<div id="app">
+		<el-container>
+			<el-header>
+				<el-menu background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+					<big><b style="color: #fff;">American Superstore Visualization</b></big>
+				</el-menu>
+			</el-header>
+
+			<el-main>
+
+				<el-row :gutter="20" class="row-bg">
+
+					<el-container>
+						<el-header height="20%" justify="start">
+							<span><big><b>Years:</b></big></span>
+							<el-button-group id='years-group'>
+								<el-button v-for="year in years" :key="year" :id="'button-'+year"
+									@click="setYear(year)">{{year}}</el-button>
+								<el-button id="button-All" @click="setYear('All')">All</el-button>
+							</el-button-group>
+							
+							<el-button icon="el-icon-video-play" @click="playYear()"></el-button>
+							<el-radio v-model="currentType" label="profit" @change="setType('profit')">Profit</el-radio>
+							<el-radio v-model="currentType" label="sales" @change="setType('sales')">Sales</el-radio>
+							</header>
+
+							<el-main>
+								<el-row :gutter="0" type="flex" justify="center">
+									<el-col :span="14" id='maparea' style="display:inline">
+										<svg id='map'></svg>
+									</el-col>
+									<el-col :span="2" id='legend' style="display:inline"></el-col>
+								</el-row>
+								<el-row v-if="currentState==null" type="flex" justify="center">
+									尚未选择城市
+								</el-row>
+								<el-row :gutter="20" type="flex" justify="center">
+									<el-col :span="16">
+										<div id='line-chart'></div>
+									</el-col>
+								</el-row>
+
+								<el-row :gutter="20" type="flex" justify="center">
+									<el-col :span="8">
+										<div id='bar-chart'></div>
+									</el-col>
+									<el-col :span="8">
+										<div id='pie-chart'></div>
+									</el-col>
+								</el-row>
+							</el-main>
+
+					</el-container>
+				</el-row>
+			</el-main>
+		</el-container>
+	</div>
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript" src="./js/element.js"></script>
+<script type="text/javascript" src="./js/d3.js"></script>
+<script type="text/javascript" src="./js/d3-tip.js"></script>
+<script type="text/javascript" src="./js/billboard.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+
+</html>
